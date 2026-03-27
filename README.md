@@ -23,6 +23,56 @@ ScholarFlow 的核心目标是帮助初学者回答这几个关键问题：
 
 整体设计风格偏学术、克制、清晰、可靠，不走通用 SaaS 落地页路线。
 
+## 界面预览
+
+### 1. 首页：先帮用户建立方向感
+
+首页先解决“为什么要用它”和“我下一步该去哪里”的问题，把 featured directions、跨学科主题、趋势和学习路径放在同一条用户认知链路上。
+
+![ScholarFlow 首页](./docs/screenshots/home.png)
+
+### 2. Explore：筛选研究方向，而不是直接淹没在论文里
+
+探索页允许按关键词、学科、成熟度来筛选主题，让新手先看方向卡片中的难度、动量、关键词和说明，再决定是否进入主题详情。
+
+![ScholarFlow Explore 页面](./docs/screenshots/explore.png)
+
+### 3. Topic Detail：把“这个方向是什么”讲清楚
+
+主题详情页围绕一个 topic 给出 overview、意义、核心问题、子方向、代表论文、foundation vs recent 的阅读分层，以及 beginner learning path。
+
+![ScholarFlow Topic 详情页](./docs/screenshots/topic-graphrag.png)
+
+### 4. Trends：看 frontier，不丢上下文
+
+趋势页展示本周热点、增长关键词和 frontier summary，但不会只给热度，还会保留学科和信号解释，避免“看趋势但不知道为什么”的问题。
+
+![ScholarFlow Trends 页面](./docs/screenshots/trends.png)
+
+### 5. Workspace：把阅读转成自己的研究资产
+
+工作区用于沉淀收藏主题、收藏论文、笔记、阅读进度、研究问题和任务清单，让用户从“看过”过渡到“我已经开始形成判断”。
+
+![ScholarFlow Workspace 页面](./docs/screenshots/workspace.png)
+
+### 6. Report Builder：把主题信息快速整理成输出
+
+报告生成页可以基于选定主题自动整理 Markdown 草稿，适合快速生成组会汇报、入门综述草稿或研究 onboarding memo。
+
+![ScholarFlow Report Builder 页面](./docs/screenshots/report-builder.png)
+
+## 用户流程
+
+如果用一句话概括 ScholarFlow 在做什么，可以理解为下面这条链路：
+
+1. 在首页或 Explore 里发现一个值得进入的方向
+2. 在 Topic Detail 里理解这个方向为什么重要、该先读什么、现在 frontier 在哪里
+3. 把主题和论文保存到 Workspace
+4. 在 Workspace 里持续记录笔记、问题和任务
+5. 最后在 Report Builder 中把已有信息整理成结构化输出
+
+也就是说，ScholarFlow 不是只负责“找到内容”，而是负责把新手从好奇心带到可执行的研究起点。
+
 ## MVP 功能
 
 当前版本包含以下页面：
@@ -64,6 +114,20 @@ npm run lint
 npm run build
 ```
 
+## 截图更新
+
+README 中的界面截图来自本地运行后的真实页面。重新生成截图的方式：
+
+1. 启动本地开发服务器
+2. 执行截图脚本
+
+```bash
+npm run dev
+npm run screenshots
+```
+
+生成后的图片会输出到 `docs/screenshots/`。
+
 ## 项目结构
 
 ```text
@@ -94,6 +158,10 @@ src/
   lib/
     report.ts
     utils.ts
+scripts/
+  capture-screenshots.mjs
+docs/
+  screenshots/
 ```
 
 ## 数据设计
